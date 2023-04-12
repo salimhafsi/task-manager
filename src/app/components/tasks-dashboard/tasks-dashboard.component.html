@@ -1,0 +1,129 @@
+<div id="dashboard">
+  <button mat-button mat-primary color="primary" (click)="CreateTask()">
+    Create new Task
+  </button>
+  <table>
+    <thead>
+      <tr>
+        <th>Summury</th>
+        <th>Due date</th>
+        <th>create date</th>
+        <th>Priority</th>
+        <th>Status</th>
+        <th>Note</th>
+      </tr>
+      <tr>
+        <th></th>
+        <th>
+          <mat-icon
+            (click)="onSort('createDate')"
+            title="Asc Sort"
+            *ngIf="!sortAsc"
+          >
+            vertical_align_bottom</mat-icon
+          >
+          <mat-icon
+            (click)="onSort('createDate')"
+            title="Desc sort"
+            *ngIf="sortAsc"
+          >
+            vertical_align_top</mat-icon
+          >
+        </th>
+        <th>
+          <mat-icon
+            (click)="onSort('dueDate')"
+            title="Asc Sort"
+            *ngIf="!sortAsc"
+          >
+            vertical_align_bottom</mat-icon
+          >
+          <mat-icon
+            (click)="onSort('dueDate')"
+            title="Desc sort"
+            *ngIf="sortAsc"
+          >
+            vertical_align_top</mat-icon
+          >
+          <span class="sort">
+            <input
+              #dueDate
+              type="date"
+              placeholder="Summary"
+              (change)="onFilter($event.target.value, 'dueDate')"
+            />
+            <span
+              class="material-icons clear"
+              title="Clear date"
+              (click)="clearDueDate(dueDate)"
+              >close</span
+            >
+          </span>
+        </th>
+        <th>
+          <mat-icon
+            (click)="onSort('priority')"
+            title="Asc Sort"
+            *ngIf="!sortAsc"
+          >
+            vertical_align_bottom</mat-icon
+          >
+          <mat-icon
+            (click)="onSort('priority')"
+            title="Desc sort"
+            *ngIf="sortAsc"
+          >
+            vertical_align_top</mat-icon
+          >
+          <span class="sort">
+            <select (change)="onFilter($event.target.value, 'priority')">
+              <option value="all">All priority</option>
+              <option value="minor">Minor</option>
+              <option value="meduim">Meduim</option>
+              <option value="major">Major</option>
+            </select></span
+          >
+        </th>
+        <th>
+          <mat-icon
+            (click)="onSort('status')"
+            title="Asc Sort"
+            *ngIf="!sortAsc"
+          >
+            vertical_align_bottom</mat-icon
+          >
+          <mat-icon
+            (click)="onSort('status')"
+            title="Desc sort"
+            *ngIf="sortAsc"
+          >
+            vertical_align_top</mat-icon
+          >
+          <span class="sort">
+            <select (change)="onFilter($event.target.value, 'status')">
+              <option value="all">All status</option>
+              <option value="inAnalyser">In analyser</option>
+              <option value="inProgress">In progress</option>
+              <option value="fixed">Fixed</option>
+            </select></span
+          >
+        </th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of tasksList$ | async">
+        <td>{{ task.summary }}</td>
+        <td>{{ task.createDate }}</td>
+        <td>{{ task.dueDate }}</td>
+        <td>{{ task.priority }}</td>
+        <td>{{ task.status }}</td>
+        <td>{{ task.note }}</td>
+        <td><button (click)="updateTask(task)">Edit</button></td>
+        <td>
+          <button (click)="deleteTask(task)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

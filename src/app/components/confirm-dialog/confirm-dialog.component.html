@@ -1,0 +1,24 @@
+<ng-container>
+  <div
+    data-cy="cy-module-updated-successfully"
+    class="modal-body-confirm"
+    [class]="[data.type, data.sizeConfirm]"
+  >
+    <div class="header-confirm">
+      <i class="icon-confirm" [class]="data.icon"></i>
+      <h1 class="title-confirm">{{ data.title }}</h1>
+
+      <div class="text-center confirm-message" mat-dialog-content>
+        <p class="dialog-message">{{ data.message }}</p>
+      </div>
+      <div class="buttons">
+        <button (click)="cancel()">
+          <span class="label">{{ data.cancelText }}</span>
+        </button>
+        <button (click)="confirm()" class="btn-yes">
+          <span class="label">{{ data.confirmText }}</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</ng-container>

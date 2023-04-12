@@ -1,0 +1,57 @@
+<form [formGroup]="updateForm">
+  <div>
+    <label>Summary</label>
+    <input
+      formControlName="summary"
+      type="text"
+      class="text"
+      placeholder="Summary"
+    />
+  </div>
+  <div>
+    <label>Create date</label>
+    <input
+      formControlName="createDate"
+      type="date"
+      class="text"
+      placeholder="Create date"
+    />
+  </div>
+  <div>
+    <label>Due Date</label>
+    <input
+      formControlName="dueDate"
+      type="date"
+      class="text"
+      placeholder="Summary"
+    />
+  </div>
+  <div>
+    <label>Priority</label>
+    <select formControlName="priority" class="select">
+      <option value="minor">Minor</option>
+      <option value="meduim">Meduim</option>
+      <option value="major">Major</option>
+    </select>
+  </div>
+  <div>
+    <label>Status</label>
+    <select formControlName="status" class="select">
+      <option value="inAnalyser">In analyser</option>
+      <option value="inProgress">In progress</option>
+      <option value="fixed">Fixed</option>
+    </select>
+  </div>
+  <div>
+    <label>Note</label>
+    <textarea formControlName="note" class="text"></textarea>
+  </div>
+  <div class="buttons">
+    <button (click)="cancel()">
+      <span class="label">Cancel</span>
+    </button>
+    <button (click)="confirm()">
+      <span class="label">Save</span>
+    </button>
+  </div>
+</form>

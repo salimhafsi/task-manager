@@ -1,0 +1,31 @@
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  .sort {
+    position: relative;
+    left: 55px;
+    bottom: 5px;
+  }
+  .clear {
+    position: relative;
+    top: 8px;
+  }
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+.disable {
+  pointer-events: none;
+}
+#dashboard {
+  padding: 40px;
+}
